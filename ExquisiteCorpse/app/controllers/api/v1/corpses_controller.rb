@@ -5,6 +5,14 @@ class Api::V1::CorpsesController < ApplicationController
     render json: @corpses
   end
 
+
+  def get_corpse_lines
+    @lines = Lines.where(corpse_id: params[:id])
+    render json: @lines
+  end
+
+
+
   def update
     @corpse.update(corpse_params)
     if @corpse.save
