@@ -31,7 +31,7 @@ class Api::V1::CorpsesController < ApplicationController
 
   def show
     @corpse = Corpse.find(params[:id])
-    render json: @corpse, status: :accepted
+    render json: @corpse
   end
 
 
@@ -45,7 +45,7 @@ class Api::V1::CorpsesController < ApplicationController
   private
 
   def corpse_params
-    params.permit(:title, :content)
+    params.permit(:title, :imageURL)
   end
 
   def find_corpse
